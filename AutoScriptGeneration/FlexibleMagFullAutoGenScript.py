@@ -35,7 +35,7 @@ tenToSevenRamp=0.016
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(25)+1
+scanIndexArray=np.arange(10)+1
 scanTime=14.2
 scanTime=47
 motorWaittime=6.4
@@ -257,10 +257,10 @@ f.close()
 
 
 
-print ('Total time in Min',(totalBreakTime+(scanWaitTime+motorWaittime+4)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000)
+print ('Total time in Min',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000)
 
 
-print ('Total time in Hours',(totalBreakTime+(scanWaitTime+motorWaittime+4)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000/60)
+print ('Total time in Hours',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000/60)
 
 
 

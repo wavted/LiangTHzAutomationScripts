@@ -9,10 +9,7 @@ import re
 import numpy as np
 
 
-topPosName = '15B'
-midPosName = 'LSAT'
-botPosName= '10'
-TempStr = ''
+
 
 topPositionButton='65, 1034'
 #topPositionButton='51, 843'
@@ -20,40 +17,36 @@ midPositionButton='207, 1034'
 botPositionButton='354, 1034'
 topticaTopBarPosition='255, 14'
 
-
 tempSetWindowPos='1818, 903'
 tempSetButtonPos='1803,1013'
 tempSetBlankPos='1860, 806'
-
 
 cryotempSetWindowPos='1389, 945'
 cryotempSetButtonPos='1272, 1030'
 cryotempSetBlankPos='1510, 804'
 
 
+topPosName = '15B'
+midPosName = 'LSAT'
+botPosName= '10'
+TempStr = ''
 
-#tempWaitTime=12
-scanIndexArray=np.arange(21)+1
+scanIndexArray=np.arange(20)+1
 scanTime=6.6
 TempChangeAdditionalWaitTime=135
 
 #default:
 tempWaitTimePerKelvin=195
 
-#around Tc:
-#tempWaitTimePerKelvin=400
-#TempChangeWaitTime=120
 motorWaittime=2.9
 
 scanWaitTime=scanTime+2
-
 
 tempList=['289','289']
 #tempList=['50','55','60','65','70','75','80','85','90','95','100','110','120']
 
 
-
-path='../../LCCO/121222_13New_13Old/'
+path='../../LCCO/092822_15AB_Polarized/'
 
 
 
@@ -314,7 +307,7 @@ f.close()
 
 
 
-print ('Total waiting time in Min',(totalBreakTime+(motorWaittime+scanWaitTime+4)*1000*len(scanIndexArray)*(len(tempList)-1 ) )/60000)
+print ('Total waiting time in Min',(totalBreakTime+(motorWaittime+scanWaitTime+4.3)*3*1000*len(scanIndexArray)*(len(tempList)-1 ) )/60000)
 
 
 
