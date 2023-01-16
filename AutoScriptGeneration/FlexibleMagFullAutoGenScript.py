@@ -9,23 +9,29 @@ import re
 import numpy as np
 
 
-topPosName = 'LongTest1'
-midPosName = 'LongTest2'
-botPosName= 'LongTest3'
+topPosName = 'SAM'
+midPosName = 'SUB'
+botPosName= ''
 fieldStr = 'kG'
 temp = '30'
+# =============================================================================
+# 
+# topPositionButton='1566, 696'
+# midPositionButton='1711, 696'
+# botPositionButton='1853, 696'
+# =============================================================================
 
-topPositionButton='1566, 696'
-midPositionButton='1711, 696'
-botPositionButton='1853, 696'
+topPositionButton='1682, 687'
+midPositionButton='1821, 687'
+botPositionButton=''
 topticaTopBarPosition='313, 11'
 
 
 
 
-fieldSetWindowPos='1173, 1031'
-fieldSetButtonPos='1341, 1031'
-fieldSetBlankPos='1255,1031'
+fieldSetWindowPos='1117, 1021'
+fieldSetButtonPos='1271, 1021'
+fieldSetBlankPos='1183,1021'
 
 
 
@@ -35,20 +41,20 @@ tenToSevenRamp=0.016
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(10)+1
+scanIndexArray=np.arange(5)+1
 scanTime=14.2
-scanTime=47
+#scanTime=47
 motorWaittime=6.4
 
 scanWaitTime=scanTime+2
 
 
 fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
-#fieldList=['30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
+fieldList=['0','0.01','0.02']
 
-fieldList=['0','0']
 
-path='../../LCCO/Mag121222LCCO13New13Old/'
+
+path='../'
 
 
 
