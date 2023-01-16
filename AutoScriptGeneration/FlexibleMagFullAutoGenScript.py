@@ -15,12 +15,13 @@ botPosName= ''
 fieldStr = 'kG'
 temp = '30'
 # =============================================================================
-# 
+# for room temp stick 
 # topPositionButton='1566, 696'
 # midPositionButton='1711, 696'
 # botPositionButton='1853, 696'
 # =============================================================================
 
+#for low temp stick
 topPositionButton='1682, 687'
 midPositionButton='1821, 687'
 botPositionButton=''
