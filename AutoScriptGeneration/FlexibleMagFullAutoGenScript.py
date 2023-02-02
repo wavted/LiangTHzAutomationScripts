@@ -22,6 +22,7 @@ temp = '30'
 # =============================================================================
 
 #for low temp stick
+#the cordinates of top/mid/bot stick change button of labview program
 topPositionButton='1682, 687'
 midPositionButton='1821, 687'
 botPositionButton=''
@@ -29,9 +30,11 @@ topticaTopBarPosition='313, 11'
 
 
 
-
+#the rightmost part of the field entry text box (needs to be towards the right end so that the previous number gets deleted)
 fieldSetWindowPos='1117, 1021'
+# the field ramp button 
 fieldSetButtonPos='1271, 1021'
+# somewhere blank in the field settings labview window. Used to reset the textbox
 fieldSetBlankPos='1183,1021'
 
 
@@ -50,8 +53,15 @@ motorWaittime=6.4
 scanWaitTime=scanTime+2
 
 
+#the first element of field list array should be the field you are currently on, 
+#the second element is the first field you want to go to, and continue from there.
+#in the example here, the program will not measure at '0' field
+#if the first and second element is the same, the program will not set field and will immedietly start measuring at this field, after it is done, it will ramp to the third number
 fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
-fieldList=['0','0.01','0.02']
+
+#floating point fields also works, the files will be automatically saved as 0p01 for 0.01 since toptica does not take decimals
+#only use floating point numbers or integers in the fieldList array
+#fieldList=['0','0.01','0.02']
 
 
 
