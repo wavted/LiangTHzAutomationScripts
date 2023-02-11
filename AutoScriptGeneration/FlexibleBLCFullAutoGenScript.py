@@ -26,9 +26,9 @@ cryotempSetButtonPos='1272, 1030'
 cryotempSetBlankPos='1510, 804'
 
 
-topPosName = '10'
+topPosName = '15A'
 midPosName = 'LSAT'
-botPosName= '13NewRotated'
+botPosName= '15B'
 TempStr = ''
 
 scanIndexArray=np.arange(21)+1
@@ -42,11 +42,11 @@ motorWaittime=2.9
 
 scanWaitTime=scanTime+2
 
-tempList=['70','70','75','80','85','90','95','100','105','110','120','130','150','170','200','230','260','300']
+tempList=['5','5','10','13','15','17','19','20','21','23','25','30','35','40','45','50','55','60','65','70','75','80','85','90','95','100','105','110','120','130','150','170','200','250','295']
 #tempList=['50','55','60','65','70','75','80','85','90','95','100','110','120']
 
 
-path='../../LCCO/021022_10_13NewRotated/'
+path='../../LCCO/021122_15A_15B/'
 
 
 
@@ -103,35 +103,35 @@ for i in range (len(tempList)-1):
     if tempList[i]!=tempList[i+1] :
 
         
-# =============================================================================
-#         if targetTemp<=20:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.17
-#         elif targetTemp<=30:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.2
-#         elif targetTemp<=40:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.25
-#         elif targetTemp<=60:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
-#         elif targetTemp<=85:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
-#         elif targetTemp<=100:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
-#         elif targetTemp<150:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.30
-#         elif targetTemp<=180:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.4
-#         elif targetTemp<310:
-#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1
-# =============================================================================
-            
-            
-            
-        if targetTemp<=100:
-            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.8
-        elif targetTemp<=200:
+        if targetTemp<=20:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.17
+        elif targetTemp<=30:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.2
+        elif targetTemp<=40:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.25
+        elif targetTemp<=60:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
+        elif targetTemp<=85:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
+        elif targetTemp<=100:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.26
+        elif targetTemp<150:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.30
+        elif targetTemp<=180:
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.4
+        elif targetTemp<310:
             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1
-        elif targetTemp<=300:
-            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1.2
+            
+            
+            
+# =============================================================================
+#         if targetTemp<=100:
+#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1.4
+#         elif targetTemp<=200:
+#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1.9
+#         elif targetTemp<=300:
+#             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*2.1
+# =============================================================================
 
     
         
@@ -159,9 +159,9 @@ for i in range (len(tempList)-1):
         AddTempAndWait=AddTempAndWait.replace('%tempSetButtonPos%', cryotempSetButtonPos)
         AddTempAndWait=AddTempAndWait.replace('%tempSetBlankPos%', cryotempSetBlankPos)
         
-        if targetTemp<=30:
-            #cryotargetTemp=targetTemp-0.2
-            cryotargetTemp=targetTemp+1
+        if targetTemp<=5:
+            cryotargetTemp=targetTemp-0.2
+            #cryotargetTemp=targetTemp-2
         elif targetTemp<=12:
             cryotargetTemp=targetTemp-0.9
         elif targetTemp<=18:
@@ -170,8 +170,8 @@ for i in range (len(tempList)-1):
             cryotargetTemp=targetTemp-1.5
         elif targetTemp<=35:
             cryotargetTemp=targetTemp-1.5
-        #elif targetTemp<=45:
-            #cryotargetTemp=targetTemp-2
+        elif targetTemp<=45:
+            cryotargetTemp=targetTemp-2
         elif targetTemp<=220:
             cryotargetTemp=targetTemp-30
         elif targetTemp<=320:
