@@ -42,7 +42,7 @@ motorWaittime=2.9
 
 scanWaitTime=scanTime+2
 
-tempList=['5','5','10','13','15','17','19','20','21','23','25','30','35','40','45','50','55','60','65','70','75','80','85','90','95','100','105','110','120','130','150','170','200','250','295']
+tempList=['200','200','250','295']
 #tempList=['50','55','60','65','70','75','80','85','90','95','100','110','120']
 
 
@@ -118,9 +118,9 @@ for i in range (len(tempList)-1):
         elif targetTemp<150:
             tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.30
         elif targetTemp<=180:
-            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*0.4
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*2.2
         elif targetTemp<310:
-            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*1
+            tempWaitTimePerKelvinAdjusted=tempWaitTimePerKelvin*2.6
             
             
             
@@ -168,14 +168,16 @@ for i in range (len(tempList)-1):
             cryotargetTemp=targetTemp-1
         elif targetTemp<=25:
             cryotargetTemp=targetTemp-1.5
-        elif targetTemp<=35:
-            cryotargetTemp=targetTemp-1.5
-        elif targetTemp<=45:
-            cryotargetTemp=targetTemp-2
-        elif targetTemp<=220:
+        #elif targetTemp<=35:
+            #cryotargetTemp=targetTemp-1.5
+        #elif targetTemp<=45:
+            #cryotargetTemp=targetTemp-2
+        elif targetTemp<=150:
             cryotargetTemp=targetTemp-30
+        elif targetTemp<=220:
+            cryotargetTemp=targetTemp-2
         elif targetTemp<=320:
-            cryotargetTemp=targetTemp-15
+            cryotargetTemp=targetTemp-2
 # =============================================================================
 #         elif targetTemp<=65:
 #             cryotargetTemp=targetTemp-2
