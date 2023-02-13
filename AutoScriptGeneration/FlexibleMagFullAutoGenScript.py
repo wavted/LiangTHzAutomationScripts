@@ -31,11 +31,11 @@ topticaTopBarPosition='313, 11'
 
 
 #the rightmost part of the field entry text box (needs to be towards the right end so that the previous number gets deleted)
-fieldSetWindowPos='1117, 1021'
+fieldSetTextBoxRightEndPos='1117, 1021'
 # the field ramp button 
 fieldSetButtonPos='1271, 1021'
 # somewhere blank in the field settings labview window. Used to reset the textbox
-fieldSetBlankPos='1183,1021'
+AnyBlankSpaceInFieldControlWindowPos='1183,1021'
 
 
 
@@ -154,9 +154,9 @@ for i in range (len(fieldList)-1):
     AddFieldAndWait=AddFieldAndWait.replace('%fieldNum%', targetFieldStr)
     AddFieldAndWait=AddFieldAndWait.replace('BREAKTIMETODO', str(breakTime))
     
-    AddFieldAndWait=AddFieldAndWait.replace('%tempSetWindowPos%', fieldSetWindowPos)
+    AddFieldAndWait=AddFieldAndWait.replace('%tempSetWindowPos%', fieldSetTextBoxRightEndPos)
     AddFieldAndWait=AddFieldAndWait.replace('%tempSetButtonPos%', fieldSetButtonPos)
-    AddFieldAndWait=AddFieldAndWait.replace('%tempSetBlankPos%', fieldSetBlankPos)
+    AddFieldAndWait=AddFieldAndWait.replace('%tempSetBlankPos%', AnyBlankSpaceInFieldControlWindowPos)
     
     
     if  breakTime>0:
