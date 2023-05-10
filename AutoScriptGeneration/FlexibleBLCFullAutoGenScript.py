@@ -11,10 +11,14 @@ import numpy as np
 
 
 
+
+
+
 topPositionButton='65, 1034'
 #topPositionButton='51, 843'
 midPositionButton='207, 1034'
 botPositionButton='354, 1034'
+
 topticaTopBarPosition='255, 14'
 
 tempSetWindowPos='1818, 903'
@@ -26,27 +30,30 @@ cryotempSetButtonPos='1272, 1030'
 cryotempSetBlankPos='1510, 804'
 
 
-topPosName = '15A'
-midPosName = 'LSAT'
-botPosName= '15B'
+topPosName = '15BNoMirror'
+midPosName = 'LSATNoMirror'
+botPosName= '10NoMirror'
 TempStr = ''
 
-scanIndexArray=np.arange(21)+1
-scanTime=6.6
+scanIndexArray=np.arange(200)+1
+scanTime=127.5
 TempChangeAdditionalWaitTime=45
 
 #default:
 tempWaitTimePerKelvin=90
+tempWaitTimePerKelvin=50
 
 motorWaittime=2.9
 
 scanWaitTime=scanTime+2
 
-tempList=['200','200','250','295']
+tempList=['5','5','10','15','17','19','20','21','23','25','27','30','35','40','45','50','55','60','65','70','75','80','85','90','95','100','110','120','130','150','170','200','250','295']
+tempList=['300','300']
+#tempList=['95','95']
 #tempList=['50','55','60','65','70','75','80','85','90','95','100','110','120']
 
 
-path='../../LCCO/021122_15A_15B/'
+path='../../BLCTesting/BLC Modification Add Ref/ChangeTohalfInchMirror/PergedWithVSWithoutMirror/'
 
 
 
@@ -172,12 +179,13 @@ for i in range (len(tempList)-1):
             #cryotargetTemp=targetTemp-1.5
         #elif targetTemp<=45:
             #cryotargetTemp=targetTemp-2
-        elif targetTemp<=150:
-            cryotargetTemp=targetTemp-30
-        elif targetTemp<=220:
-            cryotargetTemp=targetTemp-2
         elif targetTemp<=320:
-            cryotargetTemp=targetTemp-2
+            #cryotargetTemp=targetTemp-30
+            cryotargetTemp=targetTemp-1
+        elif targetTemp<=220:
+            cryotargetTemp=targetTemp-1
+        elif targetTemp<=320:
+            cryotargetTemp=targetTemp-1
 # =============================================================================
 #         elif targetTemp<=65:
 #             cryotargetTemp=targetTemp-2

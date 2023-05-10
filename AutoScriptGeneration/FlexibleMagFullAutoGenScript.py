@@ -9,11 +9,11 @@ import re
 import numpy as np
 
 
-topPosName = 'SAM'
-midPosName = 'SUB'
+topPosName = '15B'
+midPosName = 'LSAT'
 botPosName= ''
 fieldStr = 'kG'
-temp = '30'
+temp = '10'
 # =============================================================================
 # for room temp stick 
 # topPositionButton='1566, 696'
@@ -23,19 +23,19 @@ temp = '30'
 
 #for low temp stick
 #the cordinates of top/mid/bot stick change button of labview program
-topPositionButton='1682, 687'
-midPositionButton='1821, 687'
+topPositionButton='1696, 628'
+midPositionButton='1838, 628'
 botPositionButton=''
 topticaTopBarPosition='313, 11'
 
 
 
 #the rightmost part of the field entry text box (needs to be towards the right end so that the previous number gets deleted)
-fieldSetTextBoxRightEndPos='1117, 1021'
+fieldSetWindowPos='1272, 1018'
 # the field ramp button 
-fieldSetButtonPos='1271, 1021'
+fieldSetButtonPos='1440, 1018'
 # somewhere blank in the field settings labview window. Used to reset the textbox
-AnyBlankSpaceInFieldControlWindowPos='1183,1021'
+fieldSetBlankPos='1355,1018'
 
 
 
@@ -45,7 +45,7 @@ tenToSevenRamp=0.016
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(5)+1
+scanIndexArray=np.arange(10)+1
 scanTime=14.2
 #scanTime=47
 motorWaittime=6.4
@@ -65,7 +65,7 @@ fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','
 
 
 
-path='../'
+path='../../LCCO/Mag051023LCCO15B/'
 
 
 
@@ -154,9 +154,9 @@ for i in range (len(fieldList)-1):
     AddFieldAndWait=AddFieldAndWait.replace('%fieldNum%', targetFieldStr)
     AddFieldAndWait=AddFieldAndWait.replace('BREAKTIMETODO', str(breakTime))
     
-    AddFieldAndWait=AddFieldAndWait.replace('%tempSetWindowPos%', fieldSetTextBoxRightEndPos)
+    AddFieldAndWait=AddFieldAndWait.replace('%tempSetWindowPos%', fieldSetWindowPos)
     AddFieldAndWait=AddFieldAndWait.replace('%tempSetButtonPos%', fieldSetButtonPos)
-    AddFieldAndWait=AddFieldAndWait.replace('%tempSetBlankPos%', AnyBlankSpaceInFieldControlWindowPos)
+    AddFieldAndWait=AddFieldAndWait.replace('%tempSetBlankPos%', fieldSetBlankPos)
     
     
     if  breakTime>0:
@@ -273,12 +273,20 @@ f.write(header+finalString+footer)
 f.close()
 
 
+numberOfPositionsMeasured=3
+if topPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
+    
+if midPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
+if botPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
 
 
-print ('Total time in Min',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000)
+print ('Total time in Min',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*numberOfPositionsMeasured*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000)
 
 
-print ('Total time in Hours',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*3*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000/60)
+print ('Total time in Hours',(totalBreakTime+(scanWaitTime+motorWaittime+4.3)*numberOfPositionsMeasured*1000*len(scanIndexArray)*(len(fieldList)-1) ) /60000/60)
 
 
 
