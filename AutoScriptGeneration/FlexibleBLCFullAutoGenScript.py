@@ -35,7 +35,7 @@ midPosName = 'LSATNoMirror'
 botPosName= '10NoMirror'
 TempStr = ''
 
-scanIndexArray=np.arange(200)+1
+scanIndexArray=np.arange(20)+1
 scanTime=127.5
 TempChangeAdditionalWaitTime=45
 
@@ -48,7 +48,7 @@ motorWaittime=2.9
 scanWaitTime=scanTime+2
 
 tempList=['5','5','10','15','17','19','20','21','23','25','27','30','35','40','45','50','55','60','65','70','75','80','85','90','95','100','110','120','130','150','170','200','250','295']
-tempList=['300','300']
+#tempList=['300','300']
 #tempList=['95','95']
 #tempList=['50','55','60','65','70','75','80','85','90','95','100','110','120']
 
@@ -334,9 +334,18 @@ f = open(filePath,'w',encoding='utf-8-sig')
 f.write(header+finalString+footer)
 f.close()
 
+numberOfPositionsMeasured=3
+if topPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
+    
+if midPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
+if botPosName=='':
+    numberOfPositionsMeasured=numberOfPositionsMeasured-1
 
 
-print ('Total waiting time in Min',(totalBreakTime+(motorWaittime+scanWaitTime+4.3)*3*1000*len(scanIndexArray)*(len(tempList)-1 ) )/60000)
 
+print ('Total waiting time in Min',(totalBreakTime+(motorWaittime+scanWaitTime+4.3)*numberOfPositionsMeasured*1000*len(scanIndexArray)*(len(tempList)-1 ) )/60000)
 
+print ('Total waiting time in Hours', (totalBreakTime+(motorWaittime+scanWaitTime+4.3)*numberOfPositionsMeasured*1000*len(scanIndexArray)*(len(tempList)-1 ) )/60000/60)
 

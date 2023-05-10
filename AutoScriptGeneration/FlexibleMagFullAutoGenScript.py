@@ -13,7 +13,7 @@ topPosName = '15B'
 midPosName = 'LSAT'
 botPosName= ''
 fieldStr = 'kG'
-temp = '10'
+temp = '550'
 # =============================================================================
 # for room temp stick 
 # topPositionButton='1566, 696'
@@ -45,7 +45,7 @@ tenToSevenRamp=0.016
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(10)+1
+scanIndexArray=np.arange(12)+1
 scanTime=14.2
 #scanTime=47
 motorWaittime=6.4
@@ -58,7 +58,7 @@ scanWaitTime=scanTime+2
 #in the example here, the program will not measure at '0' field
 #if the first and second element is the same, the program will not set field and will immedietly start measuring at this field, after it is done, it will ramp to the third number
 fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
-
+#fieldList=['0','0']
 #floating point fields also works, the files will be automatically saved as 0p01 for 0.01 since toptica does not take decimals
 #only use floating point numbers or integers in the fieldList array
 #fieldList=['0','0.01','0.02']
@@ -200,8 +200,11 @@ for i in range (len(fieldList)-1):
             
             OnePairScan=OnePairScanTemplate
             OnePairScan=str(OnePairScan)
-            
-            OnePairScan=OnePairScan.replace("%motorWaittime%", str(motorWaittime*2*1000))
+            if botPosName== '':
+                motorWaittimeMult=1.1
+            else:
+                motorWaittimeMult=2
+            OnePairScan=OnePairScan.replace("%motorWaittime%", str(motorWaittime*motorWaittimeMult*1000))
             OnePairScan=OnePairScan.replace("%topticaTopBarPosition%", topticaTopBarPosition)
             OnePairScan=OnePairScan.replace("%motorPosition%", topPositionButton)
 
