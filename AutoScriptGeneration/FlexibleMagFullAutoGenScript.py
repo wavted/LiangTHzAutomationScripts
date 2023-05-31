@@ -9,11 +9,11 @@ import re
 import numpy as np
 
 
-topPosName = '15B'
-midPosName = 'LSAT'
+topPosName = 'LSAT'
+midPosName = '10'
 botPosName= ''
 fieldStr = 'kG'
-temp = '550'
+temp = '1p57'
 # =============================================================================
 # for room temp stick 
 # topPositionButton='1566, 696'
@@ -39,16 +39,21 @@ fieldSetBlankPos='1355,1018'
 
 
 
-zeroToTenRamp=0.01
+#zeroToTenRamp=0.01
+zeroToTenRamp=0.016
+#zeroToTenRamp=0.040
 #zeroToTenRamp=0.016
 tenToSevenRamp=0.016
+#tenToSevenRamp=0.040
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(12)+1
+scanIndexArray=np.arange(24)+1
 scanTime=14.2
 #scanTime=47
-motorWaittime=6.4
+#motorWaittime=6.4
+motorWaittime=3
+
 
 scanWaitTime=scanTime+2
 
@@ -58,14 +63,20 @@ scanWaitTime=scanTime+2
 #in the example here, the program will not measure at '0' field
 #if the first and second element is the same, the program will not set field and will immedietly start measuring at this field, after it is done, it will ramp to the third number
 fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
-#fieldList=['0','0']
+#fieldList=['0','-10','-20','-30','-40','-50','-65','-0']
+
+#fieldList=['10','10','0','-10','-20','-30','-40','-50','-65','-0']
+#fieldList=['-40','-40','-50','-60','-65','-0']
+fieldList=['-0','-0']
+#fieldList=['65','65','50','0']
+#fieldList=['-65','-65','-50','-0']
 #floating point fields also works, the files will be automatically saved as 0p01 for 0.01 since toptica does not take decimals
 #only use floating point numbers or integers in the fieldList array
-#fieldList=['0','0.01','0.02']
+#fieldList=['0','0']
 
 
 
-path='../../LCCO/Mag051023LCCO15B/'
+path='../../LCCO/Mag051723LCCO10/'
 
 
 
@@ -135,7 +146,7 @@ for i in range (len(fieldList)-1):
                                                                  
     timeTakes=timeBefore10+timeAfter10
     
-    breakTime=(timeTakes*1.01+50)*1000
+    breakTime=(timeTakes*1.012+49)*1000
     
     if currentField==targetField:
         breakTime=0
@@ -201,7 +212,7 @@ for i in range (len(fieldList)-1):
             OnePairScan=OnePairScanTemplate
             OnePairScan=str(OnePairScan)
             if botPosName== '':
-                motorWaittimeMult=1.1
+                motorWaittimeMult=1
             else:
                 motorWaittimeMult=2
             OnePairScan=OnePairScan.replace("%motorWaittime%", str(motorWaittime*motorWaittimeMult*1000))
