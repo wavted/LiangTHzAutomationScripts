@@ -162,7 +162,7 @@ for i in range (len(fieldList)-1):
         file.close()
         
     AddFieldAndWait=str(AddFieldAndWait)
-    AddFieldAndWait=AddFieldAndWait.replace('%fieldNum%', targetFieldStr)
+    AddFieldAndWait=AddFieldAndWait.replace('%fieldNum%', str(targetField))
     AddFieldAndWait=AddFieldAndWait.replace('BREAKTIMETODO', str(breakTime))
     
     AddFieldAndWait=AddFieldAndWait.replace('%tempSetWindowPos%', fieldSetWindowPos)
