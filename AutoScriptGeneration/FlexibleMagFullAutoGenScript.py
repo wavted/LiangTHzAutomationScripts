@@ -128,8 +128,8 @@ for i in range (len(fieldList)-1):
     currentFieldStr=fieldList[i].replace('.', 'p')
     targetFieldStr=fieldList[i+1].replace('.', 'p')
     
-    currentField=float(fieldList[i])
-    targetField=float(fieldList[i+1])
+    currentField=float(fieldList[i].replace('p', '.'))
+    targetField=float(fieldList[i+1].replace('p', '.'))
     
     
     if abs(currentField)<10 or abs (targetField)<10:
