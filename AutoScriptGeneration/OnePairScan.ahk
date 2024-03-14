@@ -43,6 +43,10 @@ SendEvent {F8}
 
 Sleep,%scanWaitTime%
 
+CoordMode, Mouse, Screen
+Click, %topticaTopBarPosition%
+Sleep,40
+
 SendEvent {F11}
 Sleep,341
 Send %sampleName%_%temp%_%field%_%scanIndex%
