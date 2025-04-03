@@ -1,3 +1,6 @@
+Academic use ONLY. For commercial use, please contact Will at jliang48@jh.edu for licencing. 
+
+
 # Steps For Execution
  
 1. Arrange windows on BLC/Mag computer according to screenshot 
