@@ -9,11 +9,11 @@ import re
 import numpy as np
 
 
-topPosName = 'LSAT'
-midPosName = '10'
+topPosName = 'sam'
+midPosName = 'sub'
 botPosName= ''
 fieldStr = 'kG'
-temp = '1p57'
+temp = '6'
 # =============================================================================
 # for room temp stick 
 # topPositionButton='1566, 696'
@@ -48,11 +48,18 @@ tenToSevenRamp=0.016
 #tenToSevenRamp=0.023
 
 #tempWaitTime=12
-scanIndexArray=np.arange(24)+1
-scanTime=14.2
-#scanTime=47
+scanIndexArray=np.arange(20)+1
+# 2000*15ps 
+#scanTime=30.6
+
+#1000 * 10 ps
+#scanTime=9.7
+scanTime=14.8
+#scanTime=41
+#scanTime=124
 #motorWaittime=6.4
-motorWaittime=3
+motorWaittime=4.9
+#motorWaittime=3.3
 
 
 scanWaitTime=scanTime+2
@@ -62,24 +69,38 @@ scanWaitTime=scanTime+2
 #the second element is the first field you want to go to, and continue from there.
 #in the example here, the program will not measure at '0' field
 #if the first and second element is the same, the program will not set field and will immedietly start measuring at this field, after it is done, it will ramp to the third number
-fieldList=['0','65','50','40','30','20','10','0','-10','-20','-30','-40','-50','-65','-0']
-#fieldList=['0','-10','-20','-30','-40','-50','-65','-0']
+fieldList=['0','3','6','9','12','15','18','21','24','27','30','0','-3','-6','-9','-12','-15','-18','-21','-24','-27','-30','-0']
+fieldList=['0','0','-3','-6','-9','-12','-15','-18','-21','-24','-27','-30','00']
+fieldList=['0','0']
 
-#fieldList=['10','10','0','-10','-20','-30','-40','-50','-65','-0']
+fieldList=['0','30','27','24','21','18','15','12','9','6','3','0','-3','-6','-9','-12','-15','-18','-21','-24','-27','-30','00']
+fieldList=['0','30','27','24','21','18','15','12','9','6','3','0','-3','-6','-9','-12','-15','-18','-21','-24','-27','-30','00']
+
+
+#fieldList=['0','30','27','24','21','18','15','12','9','6','3','0','-3','-6','-9','-12','-15','-18','-21','-24','-27','-30','00']
+#fieldList=['0',
+
+#fieldList=['6','6','3','0','-3','-6','00']
+#fieldList=['-21','-24','-27','-30','00']
+#fieldList=['3','00']
+
+fieldList=['0','65','60','50','40','30','20','10','0','-10','-20','-30','-40','-50','-60','-65','-0']
+#fieldList=['0','55','50','40','30','25','20','15','10','5','0','-5','-10','-15','-20','-25','-30','-40','-50','-55','00']
+#fieldList=['-40','-40','-50','-65','-0']
 #fieldList=['-40','-40','-50','-60','-65','-0']
-fieldList=['-0','-0']
+#fieldList=['0','-0.1']
 #fieldList=['65','65','50','0']
 #fieldList=['-65','-65','-50','-0']
 #floating point fields also works, the files will be automatically saved as 0p01 for 0.01 since toptica does not take decimals
 #only use floating point numbers or integers in the fieldList array
-#fieldList=['0','0']
+fieldList=['10','10','20','4.00','00']
 
 
 
-path='../../LCCO/Mag051723LCCO10/'
+path='../../ZnO/'
 
 
-
+fieldListInt=list(map(float, fieldList))
 
 
 
@@ -280,7 +301,7 @@ for i in range (len(fieldList)-1):
   
     
   
-filePath=path+topPosName+midPosName+botPosName+' '+temp+' WholeLoop'+'.ahk'  
+filePath=path+topPosName+midPosName+botPosName+' '+temp+' WholeLoop'+str(max(fieldListInt))+'kGMax'+'.ahk'  
     
 f = open(filePath,'w',encoding='utf-8-sig')
 f.write(header+finalString+footer)
